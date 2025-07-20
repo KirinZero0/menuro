@@ -46,7 +46,7 @@ const handleUpdateRestaurant = async (req, res) => {
     const { restaurantId } = req.params;
     const { name, icon, imageUrl, descriptions, openAt, closeAt } = req.body;
 
-    const { id, menu } = await updateRestaurant({
+    const { id, restaurant } = await updateRestaurant({
       restaurantId,
       name,
       icon,
@@ -59,7 +59,7 @@ const handleUpdateRestaurant = async (req, res) => {
     res.status(200).json({
       message: 'Resrtaurant updated successfully',
       id,
-      menu,
+      restaurant,
     });
   } catch (err) {
     res.status(400).json({
